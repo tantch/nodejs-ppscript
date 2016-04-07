@@ -20,7 +20,7 @@ var hash = crypto.createHash('md5').update(prehash).digest('hex');
 console.log(hash);
 
 request({
-      url: 'http://gateway.marvel.com/v1/public/creators'
+      url: 'http://gateway.marvel.com:80/v1/public/characters'
     , json: true
     , qs: {
         ts: ts
@@ -37,6 +37,10 @@ request({
       if (response.statusCode !== 200) {
       console.log(response.statusCode);
       }
-      console.log(response);
-      fs.writeFile("cenas.txt",JSON.stringify(response.body));
+      var results = response.body.data.results;
+      var stream = fs.createWriteStream("names.txt");
+      for(var i=0;i< results.length;i++){
+        stream.write(results[i].name + "\n");
+      }
+
   });
