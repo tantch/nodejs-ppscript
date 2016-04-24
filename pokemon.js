@@ -1,53 +1,19 @@
-var request = require('request');
-var baseUrl = 'http://pokeapi.co/api/v2/';
 
 
-exports.getById = function(name,id,fn) {
-  request({
-    url: baseUrl + name + '/' + id,
-    json: true,
-  }, function(err, response) {
-    if (err) {
-      console.log(err);
-      return;
-    }
+exports.getBasicInfo = function(poke){
 
-    if (response.statusCode !== 200) {
-      console.log(response.statusCode);
-      return;
-    }
-    fn(response.body);
+  var pokemon = {
+    id: poke.id,
+    name: poke.name,
+    height: poke.height,
+    weight: poke.weight,
+    defaultSprite: poke.sprites.front_default,
+    stat: poke.stats,
+    types: poke.types
+  };
 
 
 
-  });
-}
-
-
-exports.getList = function(name,limit, offset, fn) {
-
-  request({
-    url: baseUrl +  name + '/',
-    json: true,
-    qs: {
-      limit: limit,
-      offset: offset
-    }
-  }, function(err, response) {
-    if (err) {
-      console.log(err);
-      return;
-    }
-
-    if (response.statusCode !== 200) {
-      console.log(response.statusCode);
-      return;
-    }
-    fn(response.body.results);
-
-
-
-  });
-
+return pokemon;
 
 }

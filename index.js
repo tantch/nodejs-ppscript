@@ -1,7 +1,12 @@
-const pokeapi = require('./pokemon.js');
-
+const pokeapi = require('./pokereq.js');
+const pokemon  = require('./pokemon.js');
 logName = function(o) {
   console.log(o.name);
+}
+
+basicInfo = function(pk){
+  var poke = pokemon.getBasicInfo(pk);
+  console.log(JSON.stringify(poke));
 }
 
 logNameForArray = function(array) {
@@ -21,12 +26,12 @@ var mode;
 rl.question('Write the name of the resource to search (singular): \n', (name) => {
 
 
-  rl.question('Select search mode ( 1- ById, 2- List): \n', (id) => {
-    mode = id;
+  rl.question('Select search mode ( 1- ById, 2- List): \n', (mode) => {
 
     if (mode == 1) {
       rl.question('Write pokemon id: \n', (id) => {
-        pokeapi.getById(name,id, logName);
+        pokeapi.getById(name,id, basicInfo);
+
         rl.close();
       });
     } else if (mode == 2) {
