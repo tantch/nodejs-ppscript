@@ -1,0 +1,8 @@
+<h3>Pokemons</h3>
+
+<ul>
+	<li ng-repeat="pokemon in pokemons">
+		<a ng-href="#/pokemon/{{$index +1}}"> {{pokemon.name}} - {{$index + 1}}</a> 
+		<!-- {{pokemon.name}} - {{$index + 1}} -->
+	</li>
+</ul>

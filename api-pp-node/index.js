@@ -29,11 +29,9 @@ app.use(function(req, res, next) {
 app.get('/',function (req,res){
   res.send('Hello World!');
 });
-app.get('/pokemons/:pag', function (req, res) {
-  var pg = req.params.pag - 1;
-  var ofs = pg*20;
-  var lm= 20;
-  pokeapi.getList('pokemon',lm,ofs,res);
+app.get('/pokemons', function (req, res) {
+
+  pokeapi.getListAll('pokemon',pokeapi.getList,res);
 
 });
 app.get('/pokemon/:id',function(req,res){

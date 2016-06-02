@@ -43,10 +43,30 @@ exports.getList = function(name,limit, offset, res) {
       console.log(response.statusCode);
       return;
     }
-    console.log("And another");
     res.json(response.body.results);
 
 
+
+  });
+}
+  exports.getListAll = function(name,fn,res) {
+
+  request({
+    url: baseUrl +  name + '/',
+    json: true,
+  }, function(err, response) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      console.log(response.statusCode);
+      return;
+    }
+    var count=response.body.count;
+
+    fn(name,count,0,res);
 
   });
 
