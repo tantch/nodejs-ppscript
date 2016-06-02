@@ -8,5 +8,5 @@ app.controller('PokemonCtrl', function($scope, $http) {
     $scope.pokemons = data;
     console.log($scope.pokemons);
   });
-  
+
 });

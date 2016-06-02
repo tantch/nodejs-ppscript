@@ -36,6 +36,11 @@ app.get('/pokemons/:pag', function (req, res) {
   pokeapi.getList('pokemon',lm,ofs,res);
 
 });
+app.get('/pokemon/:id',function(req,res){
+
+  pokeapi.getById('pokemon',req.params.id,res);
+
+});
 
 app.listen(3333, function () {
   console.log('Example app listening on port 3333!');
