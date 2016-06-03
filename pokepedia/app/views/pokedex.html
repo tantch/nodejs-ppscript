@@ -2,7 +2,7 @@
 
 <ul>
 	<li ng-repeat="pokemon in pokemons">
-		<a ng-href="#/pokemon/{{$index +1}}"> {{pokemon.name}} - {{$index + 1}}</a> 
+		<a ng-href="#/pokemon/{{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}"> {{pokemon.name}} - {{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}</a> 
 		<!-- {{pokemon.name}} - {{$index + 1}} -->
 	</li>
 </ul>
