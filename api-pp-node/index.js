@@ -37,7 +37,6 @@ app.get('/pokemons', function (req, res) {
 app.get('/pokemon/:id',function(req,res){
 
   pokeapi.getById('pokemon',req.params.id,res);
-
 });
 
 app.listen(3333, function () {

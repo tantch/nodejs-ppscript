@@ -15,6 +15,7 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'angularUtils.directives.dirPagination',
     'ngTouch'
   ])
   .config(function ($routeProvider) {

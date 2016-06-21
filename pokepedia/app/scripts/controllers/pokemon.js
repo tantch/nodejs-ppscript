@@ -19,8 +19,6 @@ $scope.getPokeData = function(id){
     console.log($scope.pokemon);
   });
 }
-
-
 });
 
 app.controller('PokemonCtrl', function($scope, $http, $routeParams) {

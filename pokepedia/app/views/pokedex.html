@@ -1,8 +1,29 @@
 <h3>Pokemons</h3>
 
-<ul>
+<!-- <ul>
 	<li ng-repeat="pokemon in pokemons">
-		<a ng-href="#/pokemon/{{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}"> {{pokemon.name}} - {{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}</a> 
-		<!-- {{pokemon.name}} - {{$index + 1}} -->
+		<a ng-href="#/pokemon/{{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}"> 
+			{{pokemon.name}}
+		</a> 
 	</li>
-</ul>
+</ul> -->
+
+<div class="col-md-12">
+	<table class="table table-striped table-bordered">
+		<th>
+			Pokemon
+		</th>
+		<tr dir-paginate = "pokemon in pokemons | itemsPerPage: 10">
+			<td>
+				<a ng-href="#/pokemon/{{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}"> 
+					{{pokemon.name}}
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div>
+		<div class = "text-center">
+			<dir-pagination-controls boundary-links = "true" on-page-change = "pageChangeHandler(newPageNumber)" template-url = "../scripts/dirPagination.tpl.html"></dir-pagination-controls>
+		</div>
+	</div>
+</div>

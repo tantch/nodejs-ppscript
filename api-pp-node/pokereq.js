@@ -17,12 +17,8 @@ exports.getById = function(name,id,res) {
       return;
     }
     res.json(response.body);
-
-
-
   });
 }
-
 
 exports.getList = function(name,limit, offset, res) {
 

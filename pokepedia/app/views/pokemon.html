@@ -1,30 +1,60 @@
-<div>
-<h1>{{pokemon.name}} <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}"> </h1>
-</div>
-
 <div class="col-md-12">
-	<h4>Abilities</h4>
-	<div class="col-md-4">
-		<ul>
-			<li ng-repeat="ab in pokemon.abilities">
-				<p>{{ab.ability.name}}</p>
-			</li>
-		</ul>
+	<div class="row">		
+		<div class="col-md-4">
+			<h1>{{pokemon.name}} <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}"> </h1>
+		</div>
+		<div class="col-md-8">
+			<table class="table table-striped table-bordered">
+				<th> Base Experience </th>
+				<th> Height </th>
+				<th> Weight </th>
+				<tr>
+					<td> {{pokemon.base_experience}} </td>
+					<td> {{pokemon.height}} </td>
+					<td> {{pokemon.weight}} </td>
+				</tr>
+			</table>
+		</div>
 	</div>
-	<h4>Stats</h4>
-	<div class="col-md-4">
-		<ul>
-			<li ng-repeat="st in pokemon.stats">
-				<p>{{st.stat.name}} - {{st.base_stat}}</p>
-			</li>
-		</ul>
-	</div>
-	<h4> Moves </h4>
-	<div class="col-md-4">
-		<ul>
-			<li ng-repeat="move in pokemon.moves">
-				<p>{{move.move.name}}</p>
-			</li>
-		</ul>
+	<div class = "row">
+		<div class="col-md-4">
+			<h4>Types</h4>
+			<ul>
+				<li ng-repeat="tp in pokemon.types">
+					<p>{{tp.type.name}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<h4>Abilities</h4>
+			<ul>
+				<li ng-repeat="ab in pokemon.abilities">
+					<p>{{ab.ability.name}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<h4>Stats</h4>
+			<ul>
+				<li ng-repeat="st in pokemon.stats">
+					<p>{{st.stat.name}} - {{st.base_stat}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<table class="table table-striped table-bordered">
+					<th> Moves </th>
+					<tr dir-paginate = "move in pokemon.moves | itemsPerPage: 10">
+						<td> {{move.move.name}} </td>
+					</tr>
+				</table>
+				<div>
+					<div class = "text-center">
+						<dir-pagination-controls boundary-links = "true" on-page-change = "pageChangeHandler(newPageNumber)" template-url = "../scripts/dirPagination.tpl.html"></dir-pagination-controls>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
