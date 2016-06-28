@@ -38,6 +38,18 @@ app.get('/pokemon/:id',function(req,res){
 
   pokeapi.getById('pokemon',req.params.id,res);
 });
+app.get('/evolution-chain/:id',function(req,res){
+
+  pokeapi.getEvolution('evolution-chain',req.params.id,res);
+});
+app.get('/species/:id',function(req,res){
+
+  pokeapi.getSpecies('pokemon-species',req.params.id,res);
+});
+app.get('/chain/:id',function(req,res){
+
+  pokeapi.getSpecies('evolution-chain',req.params.id,res);
+});
 
 app.listen(3333, function () {
   console.log('Example app listening on port 3333!');

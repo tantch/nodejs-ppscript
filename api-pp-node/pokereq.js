@@ -45,7 +45,8 @@ exports.getList = function(name,limit, offset, res) {
 
   });
 }
-  exports.getListAll = function(name,fn,res) {
+
+exports.getListAll = function(name,fn,res) {
 
   request({
     url: baseUrl +  name + '/',
@@ -65,6 +66,66 @@ exports.getList = function(name,limit, offset, res) {
     fn(name,count,0,res);
 
   });
+}
 
+exports.getEvolution = function(name,id,res) {
 
+  request({
+    url: baseUrl +  name + '/' + id,
+    json: true,
+  }, function(err, response) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      console.log(response.statusCode);
+      return;
+    }
+
+    res.json(response.body);
+
+  });
+}
+
+exports.getSpecies = function(name,id,res) {
+
+  request({
+    url: baseUrl +  name + '/' + id,
+    json: true,
+  }, function(err, response) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      console.log(response.statusCode);
+      return;
+    }
+
+    res.json(response.body);
+
+  });
+}
+exports.getChain = function(name,id,res) {
+
+  request({
+    url: baseUrl +  name + '/' + id,
+    json: true,
+  }, function(err, response) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      console.log(response.statusCode);
+      return;
+    }
+
+    res.json(response.body);
+
+  });
 }
