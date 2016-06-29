@@ -45,8 +45,8 @@
 		<div class="col-md-3">
 			<h4>Evolutions</h4>
 			<ul>
-				<li ng-repeat="i in index" ng-if = "evolutions[i] != pokemon.name">
-					<p>{{evolutions[i]}} <img src="{{sprites[i]}}" alt="{{evolutions[i]}}"> </p>
+				<li ng-repeat="ev in evolutions" ng-if="ev != pokemon.name">
+					<p>{{ev}} <img src="{{sprites[ev]}}" alt="{{evolutions[ev]}}"> </p>
 				</li>
 			</ul>
 		</div>

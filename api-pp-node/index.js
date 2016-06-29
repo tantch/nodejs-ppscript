@@ -36,19 +36,15 @@ app.get('/pokemons', function (req, res) {
 });
 app.get('/pokemon/:id',function(req,res){
 
-  pokeapi.getById('pokemon',req.params.id,res);
-});
-app.get('/evolution-chain/:id',function(req,res){
-
-  pokeapi.getEvolution('evolution-chain',req.params.id,res);
+  pokeapi.getStuff('pokemon',req.params.id,res);
 });
 app.get('/species/:id',function(req,res){
 
-  pokeapi.getSpecies('pokemon-species',req.params.id,res);
+  pokeapi.getStuff('pokemon-species',req.params.id,res);
 });
 app.get('/chain/:id',function(req,res){
 
-  pokeapi.getSpecies('evolution-chain',req.params.id,res);
+  pokeapi.getStuff('evolution-chain',req.params.id,res);
 });
 
 app.listen(3333, function () {

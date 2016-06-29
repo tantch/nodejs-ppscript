@@ -35,7 +35,7 @@ app.controller('PokemonCtrl', function($scope, $http, $routeParams) {
   }).success(function(data) {
     $scope.species = data;
     $scope.evolutions = [];
-    $scope.sprites = [];
+    $scope.sprites = new Map();
     $scope.index = [];
     $http({
       method: 'GET',
@@ -50,7 +50,7 @@ app.controller('PokemonCtrl', function($scope, $http, $routeParams) {
           url: 'http://127.0.0.1:3333/pokemon/' + $scope.evolutions[i],
         }).success(function(data) {
           var sp = data;
-          $scope.sprites.push(sp.sprites.front_default);
+          $scope.sprites[sp.name] = sp.sprites.front_default;
         });
       }
     });
