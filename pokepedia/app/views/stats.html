@@ -12,21 +12,33 @@
 		<div class="col-md-6">
 			<h3> Pokemon Main Color Distribution</h3>	
 			<div class="row">
+				<!--Dados específicos, podemos apagar depois-->
 				<ul >
 					<li ng-repeat="(key, value) in colors">
 						<p>{{key}} - {{value.length}}</p>
 					</li>
 				</ul>
+				<!--/Dados específicos, podemos apagar depois-->
+
+				<canvas id="pie" class="chart chart-pie"
+				  chart-data="color_values" chart-labels="color_labels">
+				</canvas> 
 			</div>
 		</div>
 		<div class="col-md-6">
 			<h3> Pokemon Habitats Distribution</h3>	
 			<div class="row">
+				<!--Dados específicos, podemos apagar depois-->
 				<ul >
 					<li ng-repeat="(key, value) in habitats">
 						<p>{{key}} - {{value.length}}</p>
 					</li>
 				</ul>
+				<!--/Dados específicos, podemos apagar depois-->
+
+				<canvas id="pie" class="chart chart-pie"
+				  chart-data="habitats_values" chart-labels="habitats_labels">
+				</canvas> 
 			</div>
 		</div>
 	</div>
@@ -34,11 +46,17 @@
 		<div class="col-md-6">
 			<h3> Pokemon Shapes Distribution</h3>	
 			<div class="row">
+				<!--Dados específicos, podemos apagar depois-->
 				<ul >
 					<li ng-repeat="(key, value) in shapes">
 						<p>{{key}} - {{value.length}}</p>
 					</li>
 				</ul>
+				<!--/Dados específicos, podemos apagar depois-->
+
+				<canvas id="pie" class="chart chart-pie"
+				  chart-data="shapes_values" chart-labels="shapes_labels">
+				</canvas> 
 			</div>
 		</div>
 	</div>

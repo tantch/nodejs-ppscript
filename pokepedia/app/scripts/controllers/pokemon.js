@@ -17,13 +17,20 @@ app.controller('PokemonListCtrl', function($scope, $http) {
     $scope.pokemon = data;
     console.log($scope.pokemon);
   });
-  }
+}
 });
 
 app.controller('StatsCtrl', function($scope, $http) {
   $scope.colors = new Map();
+  $scope.color_labels = [];
+  $scope.color_values = [];
   $scope.habitats = new Map();
+  $scope.habitats_labels = [];
+  $scope.habitats_values = [];
   $scope.shapes = new Map();
+  $scope.shapes_labels = [];
+  $scope.shapes_values = [];
+
   $http({
     method: 'GET',
     url: 'http://127.0.0.1:3333/colors',
@@ -34,10 +41,14 @@ app.controller('StatsCtrl', function($scope, $http) {
         method: 'GET',
         url: 'http://127.0.0.1:3333/color/' + i,
       }).success(function(data) {
+        $scope.color_labels.push($scope.cols.results[data.id-1].name);
+        $scope.color_values.push(data.pokemon_species.length);
         $scope.colors[$scope.cols.results[data.id-1].name] = data.pokemon_species;
+        console.log($scope.color_values);
       });
     }
   });
+
 
   $http({
     method: 'GET',
@@ -49,11 +60,14 @@ app.controller('StatsCtrl', function($scope, $http) {
         method: 'GET',
         url: 'http://127.0.0.1:3333/habitat/' + i,
       }).success(function(data) {
+        $scope.habitats_labels.push($scope.hab.results[data.id-1].name);
+        $scope.habitats_values.push(data.pokemon_species.length);
         $scope.habitats[$scope.hab.results[data.id-1].name] = data.pokemon_species;
+        console.log($scope.habitats_values);
       });
     }
   });
-    $http({
+  $http({
     method: 'GET',
     url: 'http://127.0.0.1:3333/shape',
   }).success(function(data) {
@@ -63,7 +77,10 @@ app.controller('StatsCtrl', function($scope, $http) {
         method: 'GET',
         url: 'http://127.0.0.1:3333/shape/' + i,
       }).success(function(data) {
+        $scope.shapes_labels.push($scope.sha.results[data.id-1].name);
+        $scope.shapes_values.push(data.pokemon_species.length);
         $scope.shapes[$scope.sha.results[data.id-1].name] = data.pokemon_species;
+        console.log($scope.shapes_values);
       });
     }
   });
