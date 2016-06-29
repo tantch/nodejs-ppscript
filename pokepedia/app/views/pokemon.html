@@ -15,6 +15,32 @@
 				</tr>
 			</table>
 		</div>
+		<div class="row">
+			<div class="col-md-3" ng-show="showPrev">
+				<h4>Previous Evolutions</h4>
+				<ul>
+					<li ng-repeat="prev in prev_evolutions" ng-if="prev != pokemon.name">
+						<p>
+							<a ng-href="#/pokemon/{{prev}}">{{prev}} 
+								<img src="{{sprites[prev]}}" alt="{{prev}}"> 
+							</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3" ng-show="showPost">
+				<h4>Future Evolutions</h4>
+				<ul>
+					<li ng-repeat="post in post_evolutions">	
+						<p>
+							<a ng-href="#/pokemon/{{post}}">{{post}} 
+								<img src="{{sprites[post]}}" alt="{{post}}"> 
+							</a> 
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div class = "row">
 		<div class="col-md-3">
@@ -42,24 +68,6 @@
 			</ul>
 		</div>
 
-		<div class="col-md-3">
-			<div ng-show="showPrev">
-				<h4>Previous Evolutions</h4>
-				<ul>
-					<li ng-repeat="prev in prev_evolutions" ng-if="prev != pokemon.name">
-						<p>{{prev}} <img src="{{sprites[prev]}}" alt="{{evolutions[prev]}}"> </p>
-					</li>
-				</ul>
-			</div>
-			<div ng-show="showPost">
-				<h4>Future Evolutions</h4>
-				<ul>
-					<li ng-repeat="post in post_evolutions">
-						<p>{{post}} <img src="{{sprites[post]}}" alt="{{evolutions[post]}}"> </p>
-					</li>
-				</ul>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-md-8">
 				<table class="table table-striped table-bordered">

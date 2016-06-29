@@ -16,7 +16,7 @@
 		</th>
 		<tr dir-paginate = "pokemon in filtered = (pokemons | filter:q) | itemsPerPage: 10">
 			<td>
-				<a ng-href="#/pokemon/{{pokemon.url.split('/')[pokemon.url.split('/').length-2]}}"> 
+				<a ng-href="#/pokemon/{{pokemon.name}}"> 
 					{{pokemon.name}}
 				</a>
 			</td>
