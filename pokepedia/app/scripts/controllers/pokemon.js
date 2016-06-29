@@ -20,24 +20,65 @@ app.controller('PokemonListCtrl', function($scope, $http) {
   }
 });
 
-app.controller('PokemonStatsCtrl', function($scope, $http) {
+app.controller('StatsCtrl', function($scope, $http) {
+  $scope.colors = new Map();
+  $scope.habitats = new Map();
+  $scope.shapes = new Map();
   $http({
     method: 'GET',
-    url: 'http://127.0.0.1:3333/pokemons'
+    url: 'http://127.0.0.1:3333/colors',
   }).success(function(data) {
-    $scope.pokemons = data;
-    console.log($scope.pokemons);
+    $scope.cols = data;
+    for (var i = 1; i < data.count+1; i++) {
+      $http({
+        method: 'GET',
+        url: 'http://127.0.0.1:3333/color/' + i,
+      }).success(function(data) {
+        $scope.colors[$scope.cols.results[data.id-1].name] = data.pokemon_species;
+      });
+    }
   });
 
-  $scope.getPokeData = function(id){
-   $http({
+  $http({
     method: 'GET',
-    url: 'http://127.0.0.1:3333/pokemon/' + id,
+    url: 'http://127.0.0.1:3333/habitats',
   }).success(function(data) {
-    $scope.pokemon = data;
-    console.log($scope.pokemon);
+    $scope.hab = data;
+    for (var i = 1; i < data.count+1; i++) {
+      $http({
+        method: 'GET',
+        url: 'http://127.0.0.1:3333/habitat/' + i,
+      }).success(function(data) {
+        $scope.habitats[$scope.hab.results[data.id-1].name] = data.pokemon_species;
+      });
+    }
   });
-  }
+    $http({
+    method: 'GET',
+    url: 'http://127.0.0.1:3333/shape',
+  }).success(function(data) {
+    $scope.sha = data;
+    for (var i = 1; i < data.count+1; i++) {
+      $http({
+        method: 'GET',
+        url: 'http://127.0.0.1:3333/shape/' + i,
+      }).success(function(data) {
+        $scope.shapes[$scope.sha.results[data.id-1].name] = data.pokemon_species;
+      });
+    }
+  });
+  $http({
+    method: 'GET',
+    url: 'http://127.0.0.1:3333/species',
+  }).success(function(data) {
+    $scope.species = data;
+  });
+  $http({
+    method: 'GET',
+    url: 'http://127.0.0.1:3333/forms',
+  }).success(function(data) {
+    $scope.forms = data;
+  });
 });
 
 app.controller('PokemonCtrl', function($scope, $http, $routeParams) {

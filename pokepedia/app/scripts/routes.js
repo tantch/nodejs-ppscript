@@ -9,6 +9,10 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/pokedex.html',
         controller: 'PokemonListCtrl'
       })
+      .when('/stats', {
+        templateUrl: 'views/stats.html',
+        controller: 'StatsCtrl'
+      })
       .when('/pokemon/:id', {
         templateUrl: 'views/pokemon.html',
         controller: 'PokemonCtrl'

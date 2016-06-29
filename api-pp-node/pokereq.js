@@ -50,7 +50,27 @@ exports.getListAll = function(name,fn,res) {
   });
 }
 
-exports.getStuff = function(name,id,res) {
+exports.getStuff = function(name,res) {
+
+  request({
+    url: baseUrl +  name + '/',
+    json: true,
+  }, function(err, response) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      console.log(response.statusCode);
+      return;
+    }
+    res.json(response.body);
+
+  });
+}
+
+exports.getIdStuff = function(name,id,res) {
 
   request({
     url: baseUrl +  name + '/' + id,

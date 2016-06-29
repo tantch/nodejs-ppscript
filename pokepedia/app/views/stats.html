@@ -1,0 +1,45 @@
+<div class="col-md-12">
+	<div class="row">
+		<div class="row col-md-6">
+			<h3>Pokemon Species - {{species.count}}</h3>
+		</div>
+		<div class="row col-md-6">
+			<h3>Pokemon Forms - {{forms.count}}</h3>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-6">
+			<h3> Pokemon Main Color Distribution</h3>	
+			<div class="row">
+				<ul >
+					<li ng-repeat="(key, value) in colors">
+						<p>{{key}} - {{value.length}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h3> Pokemon Habitats Distribution</h3>	
+			<div class="row">
+				<ul >
+					<li ng-repeat="(key, value) in habitats">
+						<p>{{key}} - {{value.length}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h3> Pokemon Shapes Distribution</h3>	
+			<div class="row">
+				<ul >
+					<li ng-repeat="(key, value) in shapes">
+						<p>{{key}} - {{value.length}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
