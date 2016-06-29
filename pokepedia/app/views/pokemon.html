@@ -43,12 +43,22 @@
 		</div>
 
 		<div class="col-md-3">
-			<h4>Evolutions</h4>
-			<ul>
-				<li ng-repeat="ev in evolutions" ng-if="ev != pokemon.name">
-					<p>{{ev}} <img src="{{sprites[ev]}}" alt="{{evolutions[ev]}}"> </p>
-				</li>
-			</ul>
+			<div ng-show="showPrev">
+				<h4>Previous Evolutions</h4>
+				<ul>
+					<li ng-repeat="prev in prev_evolutions" ng-if="prev != pokemon.name">
+						<p>{{prev}} <img src="{{sprites[prev]}}" alt="{{evolutions[prev]}}"> </p>
+					</li>
+				</ul>
+			</div>
+			<div ng-show="showPost">
+				<h4>Future Evolutions</h4>
+				<ul>
+					<li ng-repeat="post in post_evolutions">
+						<p>{{post}} <img src="{{sprites[post]}}" alt="{{evolutions[post]}}"> </p>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-8">
