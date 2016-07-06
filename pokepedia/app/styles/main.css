@@ -61,8 +61,8 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  a.navbar-brand, ul.navbar-nav li a {
+   color: #3269b2 !important;
   }
 
   /* Remove the padding we set earlier */
@@ -79,5 +79,19 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+  #js-navbar-collapse > ul{
+    position: absolute;
+    right: 10%;
+  }
+  .navbar{
+    margin-bottom: -20px;
+    background-color: #ffcc00;
+  }
+  a.btn{
+    background-color:#3269b2 !important; 
+  }
+  div.ng-scope{
+    padding-top: 3%;
   }
 }
