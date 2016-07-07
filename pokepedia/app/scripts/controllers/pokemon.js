@@ -44,7 +44,7 @@ app.controller('StatsCtrl', function($scope, $http) {
         $scope.color_labels.push($scope.cols.results[data.id-1].name);
         $scope.color_values.push(data.pokemon_species.length);
         $scope.colors[$scope.cols.results[data.id-1].name] = data.pokemon_species;
-        $scope.background_colors["#000000","#0040FF","#3B0B0B","#424242","#298A08","#DF01A5","#6A0888","#FF0000","#FFFFFF","#FFFF00"];
+        $scope.background_colors = ["#000000","#0040FF","#3B0B0B","#424242","#298A08","#DF01A5","#6A0888","#FF0000","#FFFFFF","#FFFF00"];
         console.log($scope.color_values);
       });
     }

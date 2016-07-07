@@ -1,3 +1,7 @@
+*{
+  font-family: 'Droid Sans', sans-serif !important;
+  font-weight: bold !important;
+}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -61,7 +65,7 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  a.navbar-brand, ul.navbar-nav li a {
+  a {
    color: #3269b2 !important;
   }
 
@@ -93,5 +97,19 @@ body {
   }
   div.ng-scope{
     padding-top: 3%;
+  }
+  div.row{
+    text-align: center;
+  }
+  .stats{
+    padding-left: 20%;
+    padding-right: 10%;
+    text-align: initial;
+  }
+  div h3{
+    padding-bottom: 5%;
+  }
+  body > div.container > div > div > p:nth-child(2) > a{
+    color: white !important;
   }
 }
