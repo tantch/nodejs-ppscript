@@ -1,9 +1,9 @@
 <div class="col-md-12">
 	<div class="row">		
-		<div class="col-md-4">
 			<h1>{{pokemon.name}} <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}"> </h1>
-		</div>
-		<div class="col-md-8">
+	</div>
+	<div class="row">
+		<div class="col-md-4">
 			<table class="table table-striped table-bordered">
 				<th> Base Experience </th>
 				<th> Height </th>
@@ -15,10 +15,11 @@
 				</tr>
 			</table>
 		</div>
-		<div class="row">
-			<div class="col-md-3" ng-show="showPrev">
+	
+	
+			<div class="col-md-4" ng-show="showPrev">
 				<h4>Previous Evolutions</h4>
-				<ul>
+				<ul id="evolutions">
 					<li ng-repeat="prev in prev_evolutions" ng-if="prev != pokemon.name">
 						<p>
 							<a ng-href="#/pokemon/{{prev}}">{{prev}} 
@@ -28,10 +29,10 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-md-3" ng-show="showPost">
+			<div class="col-md-4" ng-show="showPost">
 				<h4>Future Evolutions</h4>
 				<ul>
-					<li ng-repeat="post in post_evolutions">	
+					<li id="evolutions" ng-repeat="post in post_evolutions">	
 						<p>
 							<a ng-href="#/pokemon/{{post}}">{{post}} 
 								<img src="{{sprites[post]}}" alt="{{post}}"> 
@@ -40,10 +41,10 @@
 					</li>
 				</ul>
 			</div>
-		</div>
 	</div>
+	<hr>
 	<div class = "row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<h4>Types</h4>
 			<ul>
 				<li ng-repeat="tp in pokemon.types">
@@ -51,7 +52,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<h4>Abilities</h4>
 			<ul>
 				<li ng-repeat="ab in pokemon.abilities">
@@ -59,7 +60,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<h4>Stats</h4>
 			<ul>
 				<li ng-repeat="st in pokemon.stats">
@@ -67,8 +68,8 @@
 				</li>
 			</ul>
 		</div>
-
-		<div class="row">
+	</div>
+	<div class="row move_table">
 			<div class="col-md-8">
 				<table class="table table-striped table-bordered">
 					<th> Moves </th>
@@ -82,6 +83,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 </div>

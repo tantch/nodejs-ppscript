@@ -100,16 +100,37 @@ body {
   }
   div.row{
     text-align: center;
+    padding-bottom: 3%;
   }
   .stats{
     padding-left: 20%;
     padding-right: 10%;
     text-align: initial;
   }
-  div h3{
-    padding-bottom: 5%;
-  }
+  
   body > div.container > div > div > p:nth-child(2) > a{
     color: white !important;
+  }
+
+  /*ul {
+    list-style-image: url('../images/pokeball.gif');
+  }
+*/
+  li{
+    list-style-type: none !important;
+  }
+  div.row ul{
+    text-align: left;
+  }
+  div.row h4{
+    color: #3269b2;
+  }
+  .move_table{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 15%;
+  }  
+  .pagination > .active > a{
+    background-color: #ffcc00 !important;
   }
 }
