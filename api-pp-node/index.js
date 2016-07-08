@@ -38,6 +38,10 @@ app.get('/pokemon/:id',function(req,res){
 
   pokeapi.getIdStuff('pokemon',req.params.id,res);
 });
+app.get('/move/:id',function(req,res){
+
+  pokeapi.getIdStuff('move',req.params.id,res);
+});
 app.get('/forms',function(req,res){
 
   pokeapi.getStuff('pokemon-form',res);
